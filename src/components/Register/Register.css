@@ -1,0 +1,45 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button-register:hover {
+  background-color: var(--azul-fuerte);
+  color: var(--blanco);
+}
+
+.input-field {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'Blond'; 
+}
+
+.button-text {
+  color: var(--negro); 
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 33px;
+  color: white;
+}
+
+.description {
+  font-size: 30px;
+  font-family: var(--font-roboto);
+  margin-bottom: 52px;
+  color: white;
+}
+
+
+
+
+
