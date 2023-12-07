@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 import { Register } from "../Register/Register";
 import chevronRight from "../../assets/Flechas_login.png";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../credentials";
 
 export const Login = () => {
-  const user = auth.currentUser;
-
-  if (user) {
-    window.location.href = "/home";
-  } else {
-    console.log("Usuario no iniciado");
-  }
-
+  const navigate = useNavigate(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    const user = auth.currentUser;
+
+    if (user) {
+      navigate('/home');
+    } else {
+      console.log("Usuario no iniciado");
+    }
+  }, [navigate]); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -29,15 +32,14 @@ export const Login = () => {
   const handleRegister = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        console.log(user)
-        // ...
+        console.log(user);
+        navigate('/home');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage)
+        console.log(errorMessage);
       });
   };
 
@@ -84,8 +86,10 @@ export const Login = () => {
           />
         </div>
 
-        <button className="w-full bg-white rounded-xl py-4 px-6 galarama cursor-pointer mb-4"
-        onClick={handleRegister}>
+        <button
+          className="w-full bg-white rounded-xl py-4 px-6 galarama cursor-pointer mb-4"
+          onClick={handleRegister}
+        >
           <span className="button-text text-xl">Sign In</span>
         </button>
 
