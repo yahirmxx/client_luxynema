@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useNavigate } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { Login } from "../Login/Login";
@@ -8,6 +8,14 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../credentials";
 
 export const Register = () => {
+  const user = auth.currentUser;
+
+  if (user) {
+    window.location.href = "/login";
+  } else {
+    console.log("Usuario no iniciado");
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,11 +32,9 @@ export const Register = () => {
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
         navigate("/login");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -37,6 +43,8 @@ export const Register = () => {
         // ..
       });
   };
+
+
 
   return (
     <div className="background-image flex items-center justify-center h-screen">

@@ -7,6 +7,14 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../credentials";
 
 export const Login = () => {
+  const user = auth.currentUser;
+
+  if (user) {
+    window.location.href = "/home";
+  } else {
+    console.log("Usuario no iniciado");
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
