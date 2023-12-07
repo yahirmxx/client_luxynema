@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import { auth } from "../../credentials";  
-import './Account.css';
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../credentials";
+import "./Account.css";
 
-const Account = () => {
+export const Account = () => {
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [usuario, setUsuario] = useState(null); // Estado para almacenar la información del usuario
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await auth.signOut();  
+      await auth.signOut();
       setSesionIniciada(false);
-      console.log('Logout clicked');
-      navigate('/login');
+      console.log("Logout clicked");
+      navigate("/login");
     } catch (error) {
-      console.error('Error al cerrar sesión:', error);
+      console.error("Error al cerrar sesión:", error);
     }
   };
 
   const handleBackHome = () => {
-    navigate('/home'); // Redirige a la página de inicio
+    navigate("/home"); // Redirige a la página de inicio
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Account = () => {
 
   useEffect(() => {
     if (!sesionIniciada) {
-      navigate('/account');
+      navigate("/account");
     }
   }, [sesionIniciada, navigate]);
 
@@ -71,16 +71,16 @@ const Account = () => {
           <p className="text-black font-bold text-5xl mb-8">{usuario.correo}</p>
         </div>
         <br />
-        <button className="text-white bg-transparent text-center font-bold text-lg" onClick={handleBackHome}>
+        <button
+          className="text-white bg-transparent text-center font-bold text-lg"
+          onClick={handleBackHome}
+        >
           BACK HOME
         </button>
       </div>
       <div className="w-1/2 p-4 mt-8 h-3/4">
-        <div className="user-container2 rounded-xl">
-        </div>
+        <div className="user-container2 rounded-xl"></div>
       </div>
     </div>
   );
 };
-
-export default Account;
