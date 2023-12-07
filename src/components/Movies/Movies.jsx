@@ -75,6 +75,11 @@ export const Movies = () => {
     // Add more movies as needed
   ];
 
+  const alertButton = () => {
+    // Función para manejar el clic del botón
+    alert('Nos encontramos en mantenimiento!, esta accion esta disponible PROXIMAMENTE!');
+  };
+
 
 
   return (
@@ -231,7 +236,8 @@ export const Movies = () => {
                   <p>1h 56m</p>
                   <a
                     className="bg-[color:var(--negro)] text-white rounded-xl px-4 py-1 uppercase text-sm lemon-milk hover:bg-white hover:text-[color:var(--negro)] transition-all duration-1000"
-                    href=""
+                    onClick={alertButton}
+
                   >
                     Agregar boletos
                   </a>
