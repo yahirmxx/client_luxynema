@@ -30,22 +30,35 @@ export const Hero = () => {
 
   const heroStyle = {
     backgroundImage: `
+    linear-gradient(rgba(17, 34, 54, 0.7), rgba(17, 34, 54 , 0.7)), 
       url(${!loading && peliculas.length > 0 ? peliculas[0].img_url_hd : ""})
     `,
     backgroundSize: "cover",
     height: "100vh",
+    position: "relative",
+  };
+
+  const fadeOverlayStyle = {
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    width: "100%",
+    height: "20%",
+    background:
+      "linear-gradient(to bottom, rgba(17, 34, 54, 0), rgba(17, 34, 54, 0.7))",
+    pointerEvents: "none",
   };
 
   return (
-    <>
-      <div style={heroStyle}>
-        <div className="-mt-40">
+    <div className="z-50 mt-11">
+      <div style={heroStyle} className="flex relative">
+        <div className="flex items-center justify-center">
           <section>
             {loading ? (
-              <p>Cargando...</p>
+              <h1>Hubo un problema, intenta más tarde</h1>
             ) : (
               <>
-                <h1 className="mt-10 sm:mt-24 md:mt-32 lg:mt-56 ml-4 sm:ml-8 md:ml-16 lg:ml-24 text-4xl sm:text-5xl lg:text-8xl uppercase lemon-milk text-white font-thin">
+                <h1 className="ml-4 sm:ml-8 md:ml-16 lg:ml-24 text-4xl sm:text-5xl lg:text-8xl uppercase lemon-milk text-white font-thin">
                   <a className="">{peliculas[0].titulo}</a>
                 </h1>
                 <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 ml-4 sm:ml-8 md:ml-16 lg:ml-24">
@@ -73,7 +86,8 @@ export const Hero = () => {
             )}
           </section>
         </div>
+        <div style={fadeOverlayStyle}></div>
       </div>
-    </>
+    </div>
   );
 };

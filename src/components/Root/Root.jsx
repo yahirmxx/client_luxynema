@@ -7,40 +7,41 @@ import { Login } from "../Login/Login";
 
 export const Root = () => {
   return (
-    <div className="background-image">
-      <main className="flex-1">
-        <h1 className="pl-44 pt-44 text-8xl text-white galarama">LUXYNEMA</h1>
-        <p className="text-2xl text-white pl-44">
-          Crea una cuenta de Luxynema y ten acceso
+    <div className="background-image flex items-center justify-center h-screen">
+      <main className="flex-1 p-4 md:p-8 lg:p-16 text-center">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl text-white galarama">
+          LUXYNEMA
+        </h1>
+        <p className="text-lg md:text-2xl lg:text-3xl text-white mt-2 md:mt-4 lg:mt-8">
+          Create an account and have access to the latest movies
         </p>
-        <p className="text-2xl text-white pl-44">a los mejores estrenos</p>
-        <ul>
-          <li className="pl-44 pt-12">
+        <ul className="mt-4 md:mt-8">
+          <li>
             <Link
               to="/register"
               element={<Register />}
-              className="rounded-xl bg-white py-4 px-44 text-2xl uppercase galarama cursor-pointer hover:bg-[color:var(--azul)] hover:text-[color:var(--blanco)] transition-all duration-1500"
+              className="inline-block w-full md:w-auto rounded-xl bg-white py-3 px-4 md:px-8 text-lg md:text-2xl uppercase galarama cursor-pointer hover:bg-[color:var(--azul)] hover:text-[color:var(--blanco)] duration-300"
             >
-              Crear Cuenta
+              Create Account
             </Link>
           </li>
-          <li className="flex">
-            <p className="text-2xl text-white pl-64 pt-10">
-              Ya tienes una cuenta?
+          <li className="flex justify-center mt-2 md:mt-4 lg:mt-6">
+            <p className="text-lg md:text-2xl lg:text-3xl text-white">
+              Already have an account?
             </p>
             <Link
               to="/login"
               element={<Login />}
-              className="text-2xl text-white pl-2 underline pt-10 cursor-pointer hover:text-[color:var(--azul)] transition-all duration-1500"
+              className="text-lg md:text-2xl lg:text-3xl text-white underline ml-2 cursor-pointer hover:text-[color:var(--azul)] duration-300"
             >
-              Iniciar sesión
+              Log in
             </Link>
           </li>
         </ul>
       </main>
-      <aside className="absolute top-64 right-28  items-center">
+      <aside className="hidden sm:hidden md:block absolute right-8 md:right-16 lg:right-28 top-1/2 transform -translate-y-1/2">
         <img
-          className="w-auto h-80"
+          className="w-auto h-60 md:h-80 lg:h-96"
           src={chevronRight}
           alt="Barras apuntando hacia la derecha"
         />

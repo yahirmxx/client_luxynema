@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 import { db } from "../../credentials";
 import { collection, getDocs } from "firebase/firestore";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import "./MostPopular.css"; // Asegúrate de importar tu hoja de estilos
 
 export const MostPopular = () => {
+  const [peliculas, setPeliculas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isExtendedVisible, setIsExtendedVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [scrollDisabled, setScrollDisabled] = useState(false);
+
   useEffect(() => {
     const fetchPeliculas = async () => {
       try {
@@ -22,11 +31,17 @@ export const MostPopular = () => {
     fetchPeliculas();
   }, []);
 
-  const [peliculas, setPeliculas] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedMovie, setSelectedMovie] = useState(false);
-  const [isExtendedVisible, setIsExtendedVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  useEffect(() => {
+    const closeDetailedView = () => {
+      setSelectedMovie(null);
+    };
+
+    setScrollDisabled(selectedMovie !== null);
+
+    return () => {
+      setScrollDisabled(false);
+    };
+  }, [selectedMovie]);
 
   const handleEventClick = (event) => {
     setSelectedMovie(event);
@@ -56,13 +71,15 @@ export const MostPopular = () => {
                 <li
                   className="grid"
                   key={pelicula.id}
-                  onClick={() => handleEventClick(event)}
+                  onClick={() => handleEventClick(pelicula)}
                 >
-                  <img
-                    className="bg-black w-48 md:w-56 lg:h-96 md:h-72 mx-auto md:mx-0"
-                    alt={pelicula.title}
-                    src={pelicula.img_url}
-                  />
+                  <div className="overlay-gradient">
+                    <img
+                      className="w-48 md:w-56 lg:h-96 md:h-72 mx-auto md:mx-0 cursor-pointer hover:opacity-80 duration-500 hover:scale-105"
+                      alt={pelicula.titulo}
+                      src={pelicula.img_url}
+                    />
+                  </div>
                   <h3 className="uppercase mt-2 sm:mt-4 font-medium lemon-milk text-center md:text-left">
                     {pelicula.titulo}
                   </h3>
@@ -75,68 +92,48 @@ export const MostPopular = () => {
 
             {selectedMovie && (
               <div
-                className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center ${
+                className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-300 ${
                   isExtendedVisible ? "opacity-100" : "opacity-0"
-                } ${isAnimating ? "transition-opacity duration-300" : ""}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  closeDetailedView();
-                  return false;
-                }}
+                } ${isAnimating ? "transition-opacity" : ""}`}
               >
-                <div
-                  className="bg-white p-8 rounded-md relative w-5/12"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    return false;
-                  }}
-                >
-                  <button
-                    className="absolute top-2 right-2 p-2 cursor-pointer text-gray-600 hover:text-[var(--navy-pink)] transition-colors duration-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      closeDetailedView();
-                      return false;
-                    }}
-                  >
-                    <i className="fas fa-times fa-2x"></i>
-                  </button>
+                <div className="bg-white p-8 rounded-md w-3/5 h-4/5">
                   <div>
                     <img
-                      className="mt-5 w-full h-48 object-cover rounded-md"
-                      src={selectedMovie.image}
-                      alt={selectedMovie.title}
+                      className="mt-5 w-full h-72 object-cover rounded-md"
+                      src={selectedMovie.img_url}
+                      alt={selectedMovie.titulo}
                     />
-                    <p className="font-bold text-2xl uppercase text-[var(--navy-pink)] mt-4">
-                      {selectedMovie.title}
+
+                    <p className="mt-4 text-gray-700">
+                      <span className="font-bold">Título:</span>{" "}
+                      {selectedMovie.titulo}
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Autor:</span>{" "}
-                      {selectedMovie.author}
+                      <span className="font-bold">Género:</span>{" "}
+                      {selectedMovie.generos ? selectedMovie.generos : "N/A"}
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Locación:</span>{" "}
-                      {selectedMovie.location}
+                      <span className="font-bold">Horarios:</span>{" "}
+                      {selectedMovie.horario}
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Fecha:</span>{" "}
-                      {new Date(selectedMovie.date).toLocaleDateString(
-                        "en-US",
-                        {
-                          month: "2-digit",
-                          day: "2-digit",
-                          year: "2-digit",
-                        }
-                      )}
-                    </p>
-                    <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Descripción:</span>{" "}
-                      {selectedMovie.description}
+                      <span className="font-bold">Duración:</span>{" "}
+                      {selectedMovie.duracion} min
                     </p>
                     <div className="mt-2 text-gray-700">
-                      <span className="font-bold text-justify">Detalles:</span>{" "}
-                      {selectedMovie.text}
+                      <span className="font-bold text-justify">Sinopsis:</span>{" "}
+                      {selectedMovie.sinopsis ? selectedMovie.sinopsis : "N/A"}
                     </div>
+
+                    <button
+                      className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        closeDetailedView();
+                      }}
+                    >
+                      Cerrar
+                    </button>
                   </div>
                 </div>
               </div>

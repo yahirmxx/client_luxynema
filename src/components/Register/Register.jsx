@@ -1,4 +1,4 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { Login } from "../Login/Login";
@@ -34,68 +34,56 @@ export const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/login");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
       });
   };
-
-
 
   return (
     <div className="background-image flex items-center justify-center h-screen">
       <main className="register-container">
         <div className="text-container mb-8 text-center">
-          <Typography variant="h4" color="white">
+          <Typography color="white" className="lemon-milk mb-4 text-2xl">
             Sign Up
           </Typography>
-          <Typography variant="h6" color="white">
-            Sign up to enjoy the latest release
+          <Typography color="white" className="lemon-milk text-lg">
+            Sign up to enjoy the latest releases
           </Typography>
         </div>
         <div className="register-form">
-          <div className="w-72">
-            <Input
+          <div className="w-72 mb-4">
+            <input
+              className="input-field w-full py-4 px-6 text-sm color-white lemon-milk"
+              id="email"
               type="email"
               placeholder="Email Address"
-              className="!border !border-gray-300 text-white-900 shadow-lg shadow-white-900/5"
-              color="white"
-              labelProps={{
-                className: "hidden",
-              }}
-              containerProps={{ className: "min-w-[100px]" }}
-              onChange={handleEmailChange}
+              required
               value={email}
+              onChange={handleEmailChange}
             />
           </div>
-          <br />
-          <div className="w-72">
-            <Input
+          <div className="w-72 mb-4">
+            <input
+              className="input-field w-full py-4 px-6 text-sm color-white lemon-milk"
+              id="password"
               type="password"
               placeholder="Password"
-              className="!border !border-gray-300 text-white-900 shadow-lg shadow-white-900/5"
-              color="white"
-              labelProps={{
-                className: "hidden",
-              }}
-              containerProps={{ className: "min-w-[100px]" }}
-              onChange={handlePasswordChange}
+              required
               value={password}
+              onChange={handlePasswordChange}
             />
           </div>
-          <br />
-          <div className="form-group mb-6">
+          <div className="form-group mb-6 ">
             <button
               size="lg"
               color="white"
-              className="galarama"
+              className="galarama cursor-pointer rounded-xl py-4 px-6 hover:bg-[color:var(--azul)] hover:text-[color:var(--blanco)] duration-300 mb-4"
               onClick={handleRegister}
             >
-              Create account
+              <span className="button-text text-xl">Sign In</span>
             </button>
           </div>
         </div>
@@ -104,7 +92,7 @@ export const Register = () => {
           <Link
             to="/login"
             element={<Login />}
-            className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] transition-all duration-1500"
+            className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] duration-300"
           >
             Log In
           </Link>
