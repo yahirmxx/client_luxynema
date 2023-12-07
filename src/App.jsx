@@ -7,7 +7,7 @@ import { Home } from "./components/Home/Home";
 import { Movies } from "./components/Movies/Movies";
 import { AboutUs } from "./components/AboutUs/AboutUs";
 import { MyMovies } from "./components/MyMovies/MyMovies";
-import { Account } from "./components/Account/Account";
+import   Account  from "./components/Account/Account";
 import { Footer } from "./components/Footer/Footer";
 import { Navbar } from "./components/Navbar/Navbar";
 
