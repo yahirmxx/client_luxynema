@@ -10,6 +10,7 @@ import { AboutUs } from "./components/AboutUs/AboutUs";
 import { MyMovies } from "./components/MyMovies/MyMovies";
 import { Account } from "./components/Account/Account";
 import Loader from "./components/Loader/Loader";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
   const [loader, setLoader] = useState(true);

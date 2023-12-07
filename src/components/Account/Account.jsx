@@ -61,14 +61,17 @@ export const Account = () => {
               icon={faUser}
               className="text-gray-300 text-9xl mb-2"
             />
-          </div>
+          </div><br />
+    
+          <label>Correo:</label>
+          <p className="text-black font-bold text-5sm mb-8">{usuario.correo}</p>
+
           <button
             className="bg-transparent text-black text-md font-bold py-2"
             onClick={handleLogout}
           >
             LOG OUT
           </button>
-          <p className="text-black font-bold text-5xl mb-8">{usuario.correo}</p>
         </div>
         <br />
         <button
