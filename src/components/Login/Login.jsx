@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 import { Register } from "../Register/Register";
 import chevronRight from "../../assets/Flechas_login.png";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../credentials";
 
 export const Login = () => {
-  const user = auth.currentUser;
-
-  if (user) {
-    window.location.href = "/home";
-  } else {
-    console.log("Usuario no iniciado");
-  }
-
+  const navigate = useNavigate(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    const user = auth.currentUser;
+
+    if (user) {
+      navigate('/home');
+    } else {
+      console.log("Usuario no iniciado");
+    }
+  }, [navigate]); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,11 +34,13 @@ export const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        navigate('/home');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage, errorCode);
+        console.log(errorMessage);
       });
   };
 
@@ -82,6 +87,43 @@ export const Login = () => {
             color="white"
             className="galarama cursor-pointer rounded-xl py-4 px-6 hover:bg-[color:var(--azul)] hover:text-[color:var(--blanco)] duration-300 mb-4"
             onClick={handleRegister}
+        <div className="mb-8 w-full items-center">
+          <input
+            className="input-field w-full py-4 px-6 text-xl"
+            id="email"
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </div>
+
+        <div className="mb-8 w-full ">
+          <input
+            className="input-field w-full py-4 px-6 text-xl"
+            id="password"
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+
+        <button
+          className="w-full bg-white rounded-xl py-4 px-6 galarama cursor-pointer mb-4"
+          onClick={handleRegister}
+        >
+          <span className="button-text text-xl">Sign In</span>
+        </button>
+
+        <div className="flex">
+          <p className="text-xl text-white">Don't have an account?</p>
+          <Link
+            to="/register"
+            element={<Register />}
+            className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] transition-all duration-1500"
           >
             <span className="button-text text-xl">Sign In</span>
           </button>
