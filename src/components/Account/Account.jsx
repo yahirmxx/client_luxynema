@@ -54,9 +54,8 @@ export const Account = () => {
   }
 
   return (
-<<<<<<< HEAD
     <>
-      <Navbar /><br />
+      <Navbar />
       <div className="background-image">
         <div className="w-1/4 p-8 h-3/4 relative">
           <div className="user-container rounded-2xl">
@@ -66,45 +65,23 @@ export const Account = () => {
                 className="text-gray-300 text-9xl mb-2"
               />
             </div>
+            <br />
 
+            <label>Correo:</label>
             <p className="text-black font-bold text-5sm mb-8">
               {usuario.correo}
             </p>
-            <br />
+
             <button
-              className="bg-transparent text-black text-md font-bold py-2"
-              onClick={handleLogout}
+              className="text-white bg-transparent text-center font-bold text-lg"
+              onClick={handleBackHome}
             >
-              LOG OUT
+              BACK HOME
             </button>
-            <br />
           </div>
-
-          <br />
-=======
-    <div className="background-image">
-      <div className="w-1/4 p-8 h-3/4 relative">
-        <div className="user-container rounded-2xl">
-          <div className="w-60 h-60 bg-slate-900 rounded-full flex items-center justify-center">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="text-gray-300 text-9xl mb-2"
-            />
-          </div><br />
-    
-          <label>Correo:</label>
-          <p className="text-black font-bold text-5sm mb-8">{usuario.correo}</p>
-
->>>>>>> a7b29829d0b7aa4223075e6cda27cc7677dc11eb
-          <button
-            className="text-white bg-transparent text-center font-bold text-lg"
-            onClick={handleBackHome}
-          >
-            BACK HOME
-          </button>
-        </div>
-        <div className="w-1/2 p-4 mt-8 h-3/4">
-          <div className="user-container2 rounded-xl"></div>
+          <div className="w-1/2 p-4 mt-8 h-3/4">
+            <div className="user-container2 rounded-xl"></div>
+          </div>
         </div>
       </div>
     </>
