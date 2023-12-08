@@ -54,6 +54,7 @@ export const Account = () => {
   }
 
   return (
+<<<<<<< HEAD
     <>
       <Navbar /><br />
       <div className="background-image">
@@ -80,6 +81,21 @@ export const Account = () => {
           </div>
 
           <br />
+=======
+    <div className="background-image">
+      <div className="w-1/4 p-8 h-3/4 relative">
+        <div className="user-container rounded-2xl">
+          <div className="w-60 h-60 bg-slate-900 rounded-full flex items-center justify-center">
+            <FontAwesomeIcon
+              icon={faUser}
+              className="text-gray-300 text-9xl mb-2"
+            />
+          </div><br />
+    
+          <label>Correo:</label>
+          <p className="text-black font-bold text-5sm mb-8">{usuario.correo}</p>
+
+>>>>>>> a7b29829d0b7aa4223075e6cda27cc7677dc11eb
           <button
             className="text-white bg-transparent text-center font-bold text-lg"
             onClick={handleBackHome}
