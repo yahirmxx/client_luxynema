@@ -56,7 +56,7 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <div className="background-image">
+      <div className="background-image mt-10">
         <div className="w-1/4 p-8 h-3/4 relative">
           <div className="user-container rounded-2xl">
             <div className="w-60 h-60 bg-slate-900 rounded-full flex items-center justify-center">
@@ -73,14 +73,24 @@ export const Account = () => {
             </p>
 
             <button
-              className="text-white bg-transparent text-center font-bold text-lg"
-              onClick={handleBackHome}
+              className="bg-transparent text-black text-md font-bold py-2"
+              onClick={handleLogout}
             >
-              BACK HOME
+              LOG OUT
             </button>
           </div>
-          <div className="w-1/2 p-4 mt-8 h-3/4">
-            <div className="user-container2 rounded-xl"></div>
+          <br />
+          <button
+            className="text-white bg-transparent text-center font-bold text-lg"
+            onClick={handleBackHome}
+          >
+            BACK HOME
+          </button>
+        </div>
+        <div className="w-1/2 p-4 mt-8 h-3/4">
+          <div className="user-container2 rounded-xl">
+
+            
           </div>
         </div>
       </div>
