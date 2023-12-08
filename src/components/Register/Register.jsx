@@ -89,13 +89,11 @@ export const Register = () => {
           </div>
         </div>
         <div className="flex mt-6">
-          <p className="text-xl text-white">Already have an account?</p>
           <Link
             to="/login"
             element={<Login />}
-            className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] duration-300"
-          >
-            {" "}
+            className="text-xl text-white pl-2 cursor-pointer hover:text-[color:var(--azul)] duration-300"
+          >Already have an account?
           </Link>
         </div>
       </main>
