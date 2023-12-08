@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Login } from "../Login/Login";
 import { Input, Typography } from "@material-tailwind/react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -11,7 +11,7 @@ export const Register = () => {
   const user = auth.currentUser;
 
   if (user) {
-    window.location.href = "/login";
+    navigate("/home");
   } else {
     console.log("Usuario no iniciado");
   }
@@ -34,6 +34,7 @@ export const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -94,7 +95,7 @@ export const Register = () => {
             element={<Login />}
             className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] duration-300"
           >
-            Log In
+            {" "}
           </Link>
         </div>
       </main>

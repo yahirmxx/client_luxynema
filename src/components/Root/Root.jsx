@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Root.css";
 import chevronRight from "../../assets/Flechas_login.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
+import { auth } from "../../credentials";
+
 
 export const Root = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = auth.currentUser;
+
+    if (user) {
+      navigate("/home");
+    } else {
+      console.log("Usuario no iniciado");
+    }
+  }, [navigate]);
+
   return (
     <div className="background-image flex items-center justify-center h-screen">
       <main className="flex-1 p-4 md:p-8 lg:p-16 text-center">

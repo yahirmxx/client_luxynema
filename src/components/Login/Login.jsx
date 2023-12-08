@@ -83,61 +83,20 @@ export const Login = () => {
             />
           </div>
           <button
-            size="lg"
-            color="white"
-            className="galarama cursor-pointer rounded-xl py-4 px-6 hover:bg-[color:var(--azul)] hover:text-[color:var(--blanco)] duration-300 mb-4"
-            onClick={handleRegister}
-          />
-          <div className="mb-8 w-full items-center">
-            <input
-              className="input-field w-full py-4 px-6 text-xl"
-              id="email"
-              type="email"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={handleEmailChange}
-            />
-          </div>
-
-          <div className="mb-8 w-full ">
-            <input
-              className="input-field w-full py-4 px-6 text-xl"
-              id="password"
-              type="password"
-              placeholder="Password"
-              required
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </div>
-
-          <button
             className="w-full bg-white rounded-xl py-4 px-6 galarama cursor-pointer mb-4"
             onClick={handleRegister}
           >
             <span className="button-text text-xl">Sign In</span>
           </button>
 
-          <div className="flex">
-            <p className="text-xl text-white">Don't have an account?</p>
+          <div className="flex mt-6 ">
             <Link
               to="/register"
-              element={<Register />}
-              className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] transition-all duration-1500"
+              element={<Login />}
+              className="text-xl text-white pl-2 cursor-pointer hover:text-[color:var(--azul)] duration-300 text-center"
             >
-              <span className="button-text text-xl">Sign In</span>
+              Create an account
             </Link>
-            <div className="flex">
-              <p className="text-xl text-white">{"Don't have an account?"}</p>
-              <Link
-                to="/register"
-                element={<Register />}
-                className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] duration-300"
-              >
-                Register
-              </Link>
-            </div>
           </div>
         </main>
       </div>
