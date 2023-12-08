@@ -28,16 +28,18 @@ function App() {
       {loader ? (
         <Loader />
       ) : (
-        <Routes>
-          <Route path="/" element={<Root />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/movies" element={<Movies />}></Route>
-          <Route path="/about-us" element={<AboutUs />}></Route>
-          <Route path="/my-movies" element={<MyMovies />}></Route>
-          <Route path="/account" element={<Account />}></Route>
-        </Routes>
+        <>
+          <Routes>
+            <Route path="/" element={<Root />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/movies" element={<Movies />}></Route>
+            <Route path="/about-us" element={<AboutUs />}></Route>
+            <Route path="/my-movies" element={<MyMovies />}></Route>
+            <Route path="/account" element={<Account />}></Route>
+          </Routes>
+        </>
       )}
     </>
   );

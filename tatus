@@ -1,0 +1,93 @@
+[33mcommit 91bc9a67f48429ce9924f89f51f686091c738a08[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Adair Isai Vargas Pastrana <wolfolkvargas295478@gmail.com>
+Date:   Thu Dec 7 15:51:23 2023 -0700
+
+    Fallo de renderizado de Navbar
+
+[33mcommit a907f6610b7da2f32f5675656434a0d15861c9eb[m
+Merge: b26ab72 63b3504
+Author: Adair Isai Vargas Pastrana <wolfolkvargas295478@gmail.com>
+Date:   Thu Dec 7 15:45:18 2023 -0700
+
+    a
+
+[33mcommit b26ab72db09d6018dd9d280e08024cd0b012786e[m
+Author: Adair Isai Vargas Pastrana <wolfolkvargas295478@gmail.com>
+Date:   Thu Dec 7 15:38:55 2023 -0700
+
+    Último commit antes de la presentación
+
+[33mcommit 63b35040e0208deea0478ccc5fbbaf38c58daf7d[m
+Author: JhoanaC <abicor339@gmail.com>
+Date:   Thu Dec 7 14:49:30 2023 -0700
+
+    autentications
+
+[33mcommit 17b6cae5e465e06c9c3022f16f384392e33cfd3a[m
+Author: Francisco Ramos <franciscoramos0709@gmail.com>
+Date:   Thu Dec 7 14:43:43 2023 -0700
+
+    Ultima Actualizacion de hoy
+    
+    Se agrego una alert para especificar lo que vendra proximamente
+
+[33mcommit a3662cdc6375d398a09dad1877e9985cd14e4e54[m
+Author: Francisco Ramos <franciscoramos0709@gmail.com>
+Date:   Thu Dec 7 14:38:42 2023 -0700
+
+    CheckOutActualizado
+    
+    funciona la seleccion de asientos y precios,
+
+[33mcommit 180beab5e0027fd63dd37805254692fa80e1cc78[m
+Merge: 9dfb868 430fa46
+Author: JhoanaC <abicor339@gmail.com>
+Date:   Thu Dec 7 14:03:34 2023 -0700
+
+    Merge branch 'main' of https://github.com/yahirmxx/client_luxynema
+
+[33mcommit 9dfb868dedae27e8b6df61794ec68505f7128175[m
+Author: JhoanaC <abicor339@gmail.com>
+Date:   Thu Dec 7 14:00:16 2023 -0700
+
+    account
+
+[33mcommit 430fa46d820f7dc5fa7e472c8df45200f1095a87[m
+Author: Francisco Ramos <franciscoramos0709@gmail.com>
+Date:   Thu Dec 7 12:26:00 2023 -0700
+
+    Ultimos Ajustes MOVIEFRONT
+    
+    Ultimos ajustes con responsive de MOVIES
+
+[33mcommit f43c97b6e191d482979a2d73bb75305235b18703[m
+Author: Yahir Morfin <yalanmorfin@gmail.com>
+Date:   Wed Dec 6 20:13:19 2023 -0700
+
+    Cambios main
+
+[33mcommit 20e34e4ba29515aff14afd91ed2ba5461eb058a2[m
+Author: Yahir Morfin <yalanmorfin@gmail.com>
+Date:   Wed Dec 6 19:26:12 2023 -0700
+
+    Cambios login y registro
+
+[33mcommit 8d762421dcf6951725c20b07a94653e4a91341f3[m
+Author: Francisco Ramos <franciscoramos0709@gmail.com>
+Date:   Wed Dec 6 19:08:17 2023 -0700
+
+    nuevos cambios 061223
+    
+    nuevos cambios de antigua rama de git
+
+[33mcommit e97aacb104e1d9c4a0026e2f1287986fe01d0b1a[m
+Author: Yahir Morfin <yalanmorfin@gmail.com>
+Date:   Mon Dec 4 19:39:45 2023 -0700
+
+    Cambios Cliente
+
+[33mcommit 71ed1c60b4b484f32e27f835914bfa0eb2235d8b[m
+Author: Yahir Morfin <yalanmorfin@gmail.com>
+Date:   Mon Dec 4 19:39:25 2023 -0700
+
+    first commit

@@ -3,6 +3,7 @@ import { db } from "../../credentials";
 import { collection, getDocs } from "firebase/firestore";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./MostPopular.css"; // Asegúrate de importar tu hoja de estilos
+import { Link } from "react-router-dom";
 
 export const MostPopular = () => {
   const [peliculas, setPeliculas] = useState([]);
@@ -96,7 +97,7 @@ export const MostPopular = () => {
                   isExtendedVisible ? "opacity-100" : "opacity-0"
                 } ${isAnimating ? "transition-opacity" : ""}`}
               >
-                <div className="bg-white p-8 rounded-md w-3/5 h-4/5">
+                <div className="bg-white p-8 rounded-md w-3/5 h-fit">
                   <div>
                     <img
                       className="mt-5 w-full h-72 object-cover rounded-md"
@@ -124,9 +125,14 @@ export const MostPopular = () => {
                       <span className="font-bold text-justify">Sinopsis:</span>{" "}
                       {selectedMovie.sinopsis ? selectedMovie.sinopsis : "N/A"}
                     </div>
+                    <div>
+                      <button className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md bg-black transition-colors duration-300">
+                        <Link to="/movies">Agendar boletos</Link>{" "}
+                      </button>
+                    </div>
 
                     <button
-                      className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
+                      className="mt-4 bg-[var(--navy-pink)] text-black px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
                       onClick={(e) => {
                         e.preventDefault();
                         closeDetailedView();

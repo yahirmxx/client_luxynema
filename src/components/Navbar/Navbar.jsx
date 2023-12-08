@@ -5,14 +5,16 @@ import { faUser, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  console.log(isOpen);
+
   return (
-    <div className="">
+    <div className="above-all">
       <nav className="-mb-40 flex flex-col lg:flex-row xl:flex-row 2xl:flex-row lg:justify-between xl:justify-between 2xl:justify-between lg:items-center xl:items-center 2xl:items-center">
         <div className="flex items-center justify-between px-4 lg:px-16 py-4 lg:py-10 lg:mr-32">
           <div className="text-2xl lg:text-3xl uppercase font-normal text-white galarama flex flex-end">

@@ -1,9 +1,11 @@
 import React from "react";
 import "./AboutUs.css";
+import { Navbar } from "../Navbar/Navbar";
 
 export const AboutUs = () => {
   return (
       <>
+      <Navbar />
       <div className="background  bg-no-repeat bg-cover">
         <div>
         <div className="textContainer">
