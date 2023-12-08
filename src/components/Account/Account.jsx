@@ -67,7 +67,7 @@ export const Account = () => {
             </div>
             <br />
 
-            <label>Correo:</label>
+            <label>Email</label>
             <p className="text-black font-bold text-5sm mb-8">
               {usuario.correo}
             </p>

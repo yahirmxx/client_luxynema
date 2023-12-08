@@ -89,13 +89,14 @@ export const Login = () => {
             <span className="button-text text-xl">Sign In</span>
           </button>
 
-          <div className="flex mt-6 ">
+          <div className="flex">
+            <p className="text-xl text-white">Dont have an account?</p>
             <Link
               to="/register"
-              element={<Login />}
-              className="text-xl text-white pl-2 cursor-pointer hover:text-[color:var(--azul)] duration-300 text-center"
+              element={<Register />}
+              className="text-xl text-white pl-2 underline cursor-pointer hover:text-[color:var(--azul)] transition-all duration-1500"
             >
-              Create an account
+              Register
             </Link>
           </div>
         </main>

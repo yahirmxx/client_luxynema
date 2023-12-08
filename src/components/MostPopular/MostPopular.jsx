@@ -66,6 +66,8 @@ export const MostPopular = () => {
             <h2 className="uppercase text-xl md:text-2xl font-medium lemon-milk text-center md:text-left">
               Most Popular Movies
             </h2>
+
+            <h6>Schedule your tickets</h6>
             <hr className="bg-[color:var(--azul-fuerte)] lg:w-72 w-40 md:w-56 h-2 mb-8 mx-auto md:mx-0 mt-4 md:mt-5"></hr>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-x-6 gap-y-6 mt-4 md:mt-5">
               {peliculas.map((pelicula) => (
@@ -97,49 +99,47 @@ export const MostPopular = () => {
                   isExtendedVisible ? "opacity-100" : "opacity-0"
                 } ${isAnimating ? "transition-opacity" : ""}`}
               >
-                <div className="bg-white p-8 rounded-md w-3/5 h-fit">
-                  <div>
+                <div className="bg-white p-8 rounded-md w-3/5 h-fit flex">
+                  <div className="flex flex-col mr-10">
                     <img
-                      className="mt-5 w-full h-72 object-cover rounded-md"
+                      className="mt-5 w-96 h-96 object-cover rounded-md"
                       src={selectedMovie.img_url}
                       alt={selectedMovie.titulo}
                     />
-
+                  </div>
+                  <div className="flex flex-col">
                     <p className="mt-4 text-gray-700">
-                      <span className="font-bold">Título:</span>{" "}
-                      {selectedMovie.titulo}
+                      <span className="font-bold text-3xl">
+                        {selectedMovie.titulo}
+                      </span>
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Género:</span>{" "}
                       {selectedMovie.generos ? selectedMovie.generos : "N/A"}
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Horarios:</span>{" "}
                       {selectedMovie.horario}
                     </p>
                     <p className="mt-2 text-gray-700">
-                      <span className="font-bold">Duración:</span>{" "}
                       {selectedMovie.duracion} min
                     </p>
                     <div className="mt-2 text-gray-700">
-                      <span className="font-bold text-justify">Sinopsis:</span>{" "}
                       {selectedMovie.sinopsis ? selectedMovie.sinopsis : "N/A"}
                     </div>
-                    <div>
+                    <div className="flex flex-end">
                       <button className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md bg-black transition-colors duration-300">
                         <Link to="/movies">Agendar boletos</Link>{" "}
                       </button>
-                    </div>
 
-                    <button
-                      className="mt-4 bg-[var(--navy-pink)] text-black px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        closeDetailedView();
-                      }}
-                    >
-                      Cerrar
-                    </button>
+                      <button
+                        className="hover:bg-[color:var(--azul)] duration-300 ml-2 mt-4 bg-[var(--navy-pink)] text-black px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          closeDetailedView();
+                        }}
+                      >
+                        <span className="">Cerrar</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
