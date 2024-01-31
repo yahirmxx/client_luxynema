@@ -127,7 +127,7 @@ export const MostPopular = () => {
                     </div>
                     <div className="flex flex-end">
                       <button className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md bg-black transition-colors duration-300">
-                        <Link to="/movies">Agendar boletos</Link>{" "}
+                        <Link to={`/movies?id=${selectedMovie.id}`}>Agendar boletos</Link>{" "}
                       </button>
 
                       <button

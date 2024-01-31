@@ -1,6 +1,12 @@
 import { React, useEffect, useState } from "react";
 import "./Movies.css";
 import { Navbar } from "../Navbar/Navbar";
+import { useSearchParams } from "react-router-dom";
+import { db } from "../../credentials";
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import { doc, getDocFromCache } from "firebase/firestore";
+
+
 
 export const Movies = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -10,16 +16,34 @@ export const Movies = () => {
   const [total, setTotal] = useState(0);
   const [hour] = useState("12:00PM");
   const seats = document.querySelectorAll(".row .seat:not(.occupied)");
+  const [searchParams] = useSearchParams();
+  const [movieDetails, setMovieDetails] = useState(null);
 
+  const getMovieData = async(movie_id)=>{
+    const docRef = doc(db, "peliculas", movie_id);
+    const docSnap = await getDoc(docRef);
+    console.log(docSnap.data())
+    const infoMovie = docSnap.data()
+    setMovieDetails(infoMovie);
+  }
+
+    useEffect(()=>{
+      getMovieData(selectedMovieIndex.toString()); //be aware here 
+    },[selectedMovieIndex]);
+  
+   
   useEffect(() => {
     populateUI();
+    setSelectedMovieIndex(searchParams.get("id")||0);
+
   }, []);
 
-  const setMovieData = (movieIndex, moviePrice, movieHour) => {
-    localStorage.setItem("selectedMovieIndex", movieIndex);
-    localStorage.setItem("selectedMoviePrice", moviePrice);
-    localStorage.setItem("selectedMovieHour", movieHour);
-  };
+  
+   const setMovieData = (movieIndex, moviePrice, movieHour) => {
+     localStorage.setItem("selectedMovieIndex", movieIndex);
+     localStorage.setItem("selectedMoviePrice", moviePrice);
+     localStorage.setItem("selectedMovieHour", movieHour);
+   };
 
   const updateSelectedCount = () => {
     const selectedSeats = document.querySelectorAll(".row .seat.selected");
@@ -72,15 +96,15 @@ export const Movies = () => {
     }
   };
 
-  // Assuming you have a list of movies with their prices
-  const movies = [
-    { name: "Arrival", price: 70, hour: "12pm" },
-    { name: "El padrino", price: 100, hour: "12pm" },
-    // Add more movies as needed
-  ];
+  
+ const movies = [
+   { name: "Arrival", price: 70, hour: "12pm" },
+   { name: "El padrino", price: 100, hour: "12pm" },
+    
+ ];
 
   const alertButton = () => {
-    // Función para manejar el clic del botón
+    
     alert(
       "Nos encontramos en mantenimiento!, esta accion esta disponible PROXIMAMENTE!"
     );
@@ -95,7 +119,9 @@ export const Movies = () => {
             <div className="justify-between align-center ">
               <img
                 className=" mt-20 sm:w-56 md:w-64 xl:w-72 w-44 "
-                src="../src/assets/arrival.jpg"
+                src={movieDetails?.img_url}
+                alt={movieDetails?.titulo}
+
               />
             </div>
             <div className=" contenido  mt-6 m-10 ">
@@ -110,7 +136,7 @@ export const Movies = () => {
                 className="bg-[color:var(--azul)] text-black rounded-xl px-4 py-1 uppercase text-sm lemon-milk hover:bg-white hover:text-[color:var(--negro)] transition-all duration-1000"
                 href=""
               >
-                12pm
+                {movieDetails?.horario}
               </a>
 
               <hr className="bg-[color:var(--negro)] w-100 h-1 m-4"></hr>
@@ -126,7 +152,7 @@ export const Movies = () => {
                     >
                       {movies.map((movie, index) => (
                         <option key={index} value={movie.price}>
-                          {movie.name}- ${movie.price}
+                          {movieDetails?.titulo}- ${movie.price}
                         </option>
                       ))}
                     </select>
@@ -221,20 +247,20 @@ export const Movies = () => {
                   <div className="innerCheckOut  flex ">
                     <img
                       className="moviePictureCheckOut w-40 p-2"
-                      src="../src/assets/arrival.jpg"
+                      src={movieDetails?.img_url}
                     />
                     <div className="box ">
                       <h3 className="uppercase text-2xl font-medium  lemon-milk mt-20">
                         CheckOut
                       </h3>
                       <p>total: ${total}</p>
-                      <p>hora: {hour}</p>
+                      <p>hora: {movieDetails?.horario}</p>
                       <p>asientos: {count}</p>
                     </div>
                   </div>
                   <div className="ml-4">
-                    <p>Arrival</p>
-                    <p>1h 56m</p>
+                    <p>{movieDetails?.titulo}</p>
+                    <p>{movieDetails?.duracion} minutos</p>
                     <a
                       className="bg-[color:var(--negro)] text-white rounded-xl px-4 py-1 uppercase text-sm lemon-milk hover:bg-white hover:text-[color:var(--negro)] transition-all duration-1000"
                       onClick={alertButton}
