@@ -8,7 +8,7 @@ import { Navbar } from "../Navbar/Navbar";
 
 export const Account = () => {
   const [sesionIniciada, setSesionIniciada] = useState(false);
-  const [usuario, setUsuario] = useState(null); // Estado para almacenar la información del usuario
+  const [usuario, setUsuario] = useState(null); 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -23,7 +23,7 @@ export const Account = () => {
   };
 
   const handleBackHome = () => {
-    navigate("/home"); // Redirige a la página de inicio
+    navigate("/home"); 
   };
 
   useEffect(() => {
@@ -56,24 +56,24 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <div className="background-image mt-10">
-        <div className="w-1/4 p-8 h-3/4 relative">
-          <div className="user-container rounded-2xl">
-            <div className="w-60 h-60 bg-slate-900 rounded-full flex items-center justify-center">
+      <div className="background-image flex flex-col md:flex-row">
+        <div className="w-full md:w-1/4 p-8 bg-transparent">
+          <div className="user-container rounded-2xl text-center md:text-left">
+            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-60 xl:h-60 bg-slate-900 rounded-full flex items-center justify-center mx-auto md:mx-0">
               <FontAwesomeIcon
                 icon={faUser}
-                className="text-gray-300 text-9xl mb-2"
+                className="text-gray-300 text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-2"
               />
             </div>
             <br />
 
             <label>Email</label>
-            <p className="text-black font-bold text-5sm mb-8">
+            <p className="text-black font-bold text-2xl md:text-3xl mb-8">
               {usuario.correo}
             </p>
 
             <button
-              className="bg-transparent text-black text-md font-bold py-2"
+              className="bg-transparent text-black text-md md:text-lg font-bold py-2"
               onClick={handleLogout}
             >
               LOG OUT
@@ -87,10 +87,20 @@ export const Account = () => {
             BACK HOME
           </button>
         </div>
-        <div className="w-1/2 p-4 mt-8 h-3/4">
+        <div className="w-full md:w-2/3 p-8 mt-8 md:h-auto bg-transparent">
           <div className="user-container2 rounded-xl">
-
+            <h2 className="text-2xl font-bold mb-4">Películas Vistas</h2>
             
+            <div className="flex flex-wrap gap-4">
+            </div>
+            
+            <div className="w-full md:w-1/4 lg:w-1/3 xl:w-1/4">
+              <div className="bg-white rounded-xl p-4 shadow-md">
+                <h3 className="text-lg font-semibold mb-2">Película Predeterminada</h3>
+                <p className="text-gray-500">Género: Desconocido</p>
+                <p className="text-gray-500">Director: Desconocido</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
