@@ -58,7 +58,7 @@ export const Hero = () => {
                 <h1>Hubo un problema, intenta más tarde</h1>
               ) : (
                 <>
-                  <h1 className="ml-4 sm:ml-8 md:ml-16 lg:ml-24 text-4xl sm:text-5xl lg:text-8xl uppercase lemon-milk text-white font-thin">
+                  <h1 className="ml-4 sm:ml-8 md:ml-16 text-center lg:ml-24 text-6xl lg:text-8xl uppercase lemon-milk text-white font-thin">
                     <a className="">{peliculas[0].titulo}</a>
                   </h1>
                   <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 ml-4 sm:ml-8 md:ml-16 lg:ml-24">
