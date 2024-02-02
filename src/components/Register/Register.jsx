@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Login } from "../Login/Login";
@@ -8,13 +8,17 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../credentials";
 
 export const Register = () => {
-  const user = auth.currentUser;
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const user = auth.currentUser;
 
-  if (user) {
-    navigate("/home");
-  } else {
-    console.log("Usuario no iniciado");
-  }
+    if (user) {
+      navigate("/home");
+    } else {
+      console.log("Usuario no iniciado");
+    }
+  }, [navigate]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
