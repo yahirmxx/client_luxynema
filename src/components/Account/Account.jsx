@@ -8,7 +8,7 @@ import { Navbar } from "../Navbar/Navbar";
 
 export const Account = () => {
   const [sesionIniciada, setSesionIniciada] = useState(false);
-  const [usuario, setUsuario] = useState(null); 
+  const [usuario, setUsuario] = useState(null);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -23,7 +23,7 @@ export const Account = () => {
   };
 
   const handleBackHome = () => {
-    navigate("/home"); 
+    navigate("/home");
   };
 
   useEffect(() => {
@@ -90,13 +90,14 @@ export const Account = () => {
         <div className="w-full md:w-2/3 p-8 mt-8 md:h-auto bg-transparent">
           <div className="user-container2 rounded-xl">
             <h2 className="text-2xl font-bold mb-4 mt-4">Películas Vistas</h2>
-            
-            <div className="flex flex-wrap gap-4">
-            </div>
-            
+
+            <div className="flex flex-wrap gap-4"></div>
+
             <div className="w-full md:w-1/4 lg:w-1/3 xl:w-1/4">
               <div className="bg-white rounded-xl p-4 shadow-md">
-                <h3 className="text-lg font-semibold mb-2">Película Predeterminada</h3>
+                <h3 className="text-lg font-semibold mb-2">
+                  Película Predeterminada
+                </h3>
                 <p className="text-gray-500">Género: Desconocido</p>
                 <p className="text-gray-500">Director: Desconocido</p>
               </div>
