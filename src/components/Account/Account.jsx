@@ -56,7 +56,6 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      1<li></li>
       <div className="background-image flex flex-col md:flex-row">
         <div className="w-full md:w-1/4 p-8 mt-40">
           <div className="user-container rounded-2xl text-center md:text-left">

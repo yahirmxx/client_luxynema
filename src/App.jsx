@@ -7,7 +7,7 @@ import { Login } from "./components/Login/Login";
 import { Home } from "./components/Home/Home";
 import { Movies } from "./components/Movies/Movies";
 import { AboutUs } from "./components/AboutUs/AboutUs";
-import { MyMovies } from "./components/MyMovies/MyMovies";
+import { Membresia } from "./components/Membresia/Membresia";
 import { Account } from "./components/Account/Account";
 import Loader from "./components/Loader/Loader";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -37,7 +37,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/movies" element={<Movies />}></Route>
             <Route path="/about-us" element={<AboutUs />}></Route>
-            <Route path="/my-movies" element={<MyMovies />}></Route>
+            <Route path="/membresia" element={<Membresia />}></Route>
             <Route path="/account" element={<Account />}></Route>
           </Routes>
         </>
