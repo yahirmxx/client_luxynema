@@ -109,17 +109,19 @@ export const Navbar = () => {
             </ul>
           </nav>
         ) : (
-          <a
-            className="lg:hidden bg-transparent text-white inline"
-            onClick={toggleMenus}
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? (
-              <FontAwesomeIcon icon={faTimes} />
-            ) : (
-              <FontAwesomeIcon icon={faBars} />
-            )}
-          </a>
+          <div className="above-all">
+            <a
+              className="lg:hidden bg-transparent text-white inline"
+              onClick={toggleMenus}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? (
+                <FontAwesomeIcon icon={faTimes} />
+              ) : (
+                <FontAwesomeIcon icon={faBars} />
+              )}
+            </a>
+          </div>
         )}
 
         <Drawer open={open} onClose={closeDrawer}>
@@ -160,7 +162,12 @@ export const Navbar = () => {
                   />
                 </svg>
               </ListItemPrefix>
-              Home
+              <Link
+                to="/home"
+                className="cursor-pointer hover:text-[color:var(--azul)] duration-300"
+              >
+                Home
+              </Link>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
@@ -177,7 +184,12 @@ export const Navbar = () => {
                   />
                 </svg>
               </ListItemPrefix>
-              My Movies
+              <Link
+                to="/movies"
+                className="cursor-pointer hover:text-[color:var(--azul)] duration-300"
+              >
+                My Movies
+              </Link>
               <ListItemSuffix>
                 {/* <Chip
                   value="5"
@@ -203,7 +215,12 @@ export const Navbar = () => {
                   />
                 </svg>
               </ListItemPrefix>
-              Profile
+              <Link
+                to="/account"
+                className="cursor-pointer hover:text-[color:var(--azul)] duration-300"
+              >
+                Profile
+              </Link>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
@@ -220,7 +237,12 @@ export const Navbar = () => {
                   />
                 </svg>
               </ListItemPrefix>
-              About us
+              <Link
+                to="/about-us"
+                className="cursor-pointer hover:text-[color:var(--azul)] duration-300"
+              >
+                About us
+              </Link>
             </ListItem>
           </List>
           <Button size="sm" variant="outlined">
