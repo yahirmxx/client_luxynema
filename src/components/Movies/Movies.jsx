@@ -99,7 +99,7 @@ export const Movies = () => {
   
  const movies = [
    { name: "Arrival", price: 70, hour: "12pm" },
-   { name: "El padrino", price: 100, hour: "12pm" },
+
     
  ];
 
