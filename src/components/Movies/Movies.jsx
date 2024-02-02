@@ -114,7 +114,7 @@ export const Movies = () => {
     <>
     <Navbar />
       <div>
-        <section className="flex justify-center align-center   md:p-0  bg-white sm:mx-40 md:mx-40 xl:mx-40 mx-2  rounded-xl mt-40 ">
+        <section className="flex justify-center    md:p-0  bg-white sm:mx-40 md:mx-40 xl:mx-40 mx-2  rounded-xl mt-40">
           <div className=" flex   p-0 justify-center flex-wrap">
             <div className="justify-between align-center ">
               <img
@@ -124,7 +124,7 @@ export const Movies = () => {
 
               />
             </div>
-            <div className=" contenido  mt-6 m-10 ">
+            <div className=" contenido  mt-6 m-10">
               <h2
                 id="horarios"
                 className="uppercase text-2xl font-medium lemon-milk"
@@ -243,7 +243,7 @@ export const Movies = () => {
                   </div>
                 </div>
 
-                <div className="contenidoCheckOut  h-fit  bg-gray-300 rounded-xl mt-4 ">
+                <div className="contenidoCheckOut  h-fit  bg-gray-300 rounded-xl mt-4">
                   <div className="innerCheckOut  flex ">
                     <img
                       className="moviePictureCheckOut w-40 p-2"
@@ -258,7 +258,7 @@ export const Movies = () => {
                       <p>asientos: {count}</p>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="m-4">
                     <p>{movieDetails?.titulo}</p>
                     <p>{movieDetails?.duracion} minutos</p>
                     <a
