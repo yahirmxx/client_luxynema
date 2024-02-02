@@ -56,8 +56,9 @@ export const Account = () => {
   return (
     <>
       <Navbar />
+      1<li></li>
       <div className="background-image flex flex-col md:flex-row">
-        <div className="w-full md:w-1/4 p-8 bg-transparent">
+        <div className="w-full md:w-1/4 p-8 mt-40">
           <div className="user-container rounded-2xl text-center md:text-left">
             <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-60 xl:h-60 bg-slate-900 rounded-full flex items-center justify-center mx-auto md:mx-0">
               <FontAwesomeIcon
@@ -89,7 +90,7 @@ export const Account = () => {
         </div>
         <div className="w-full md:w-2/3 p-8 mt-8 md:h-auto bg-transparent">
           <div className="user-container2 rounded-xl">
-            <h2 className="text-2xl font-bold mb-4">Películas Vistas</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-4">Películas Vistas</h2>
             
             <div className="flex flex-wrap gap-4">
             </div>
