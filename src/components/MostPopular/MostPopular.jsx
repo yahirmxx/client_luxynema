@@ -61,13 +61,13 @@ export const MostPopular = () => {
   return (
     <>
       <div>
-        <section className="bg-white mx-24 md:mx-20 rounded-xl mt-4 md:mt-10 z-0 above-all">
+        <section className="bg-white mx-10 md:mx-10 rounded-lg mt-4 md:mt-10 z-0 above-all">
           <div className="px-4 md:px-20 py-4 md:py-10">
-            <h2 className="uppercase text-xl md:text-2xl font-medium lemon-milk text-center md:text-left">
+            <h2 className="uppercase text-xl md:text-2xl font-medium lemon-milk text-center md:text-left sm:text-center">
               Most Popular Movies
             </h2>
 
-            <h6>Schedule your tickets</h6>
+            <h6 className="text-center md:text-left">Schedule your tickets</h6>
             <hr className="bg-[color:var(--azul-fuerte)] lg:w-72 w-40 md:w-56 h-2 mb-8 mx-auto md:mx-0 mt-4 md:mt-5"></hr>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-x-6 gap-y-6 mt-4 md:mt-5">
               {peliculas.map((pelicula) => (
@@ -127,7 +127,9 @@ export const MostPopular = () => {
                     </div>
                     <div className="flex flex-end">
                       <button className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md bg-black transition-colors duration-300">
-                        <Link to={`/movies?id=${selectedMovie.id}`}>Agendar boletos</Link>{" "}
+                        <Link to={`/movies?id=${selectedMovie.id}`}>
+                          Agendar boletos
+                        </Link>{" "}
                       </button>
 
                       <button
