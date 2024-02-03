@@ -100,15 +100,15 @@ export const MostPopular = () => {
                 } ${isAnimating ? "transition-opacity" : ""}`}
               >
                 <div className="bg-white p-8 rounded-md w-3/5 h-fit flex">
-                  <div className="flex flex-col mr-10">
+                  <div className="flex flex-col mr-10 ">
                     <img
-                      className="mt-5 w-96 h-96 object-cover rounded-md"
+                      className="mt-5 h-10 w-10 sm:w-96 sm:h-64 md:h-72 md:w-96 lg:h-72 lg:w-96 xl:w-96 xl:h-96 object-cover rounded-md"
                       src={selectedMovie.img_url}
                       alt={selectedMovie.titulo}
                     />
                   </div>
                   <div className="flex flex-col">
-                    <p className="mt-4 text-gray-700">
+                    <p className="mt-4 text-gray-700 mb-4">
                       <span className="font-bold text-3xl">
                         {selectedMovie.titulo}
                       </span>
@@ -116,24 +116,24 @@ export const MostPopular = () => {
                     <p className="mt-2 text-gray-700">
                       {selectedMovie.generos ? selectedMovie.generos : "N/A"}
                     </p>
-                    <p className="mt-2 text-gray-700">
+                    <p className="mt-2 font-bold text-gray-700">
                       {selectedMovie.horario}
                     </p>
-                    <p className="mt-2 text-gray-700">
+                    <p className="mt-2 font-bold text-gray-700">
                       {selectedMovie.duracion} min
                     </p>
-                    <div className="mt-2 text-gray-700">
+                    <div className="mt-2 mt-12 text-gray-700">
                       {selectedMovie.sinopsis ? selectedMovie.sinopsis : "N/A"}
                     </div>
-                    <div className="flex flex-end">
-                      <button className="mt-4 bg-[var(--navy-pink)] text-white px-4 py-2 rounded-md bg-black transition-colors duration-300">
+                    <div className="flex flex-end mt-16">
+                      <button className="hover:bg-[var(--azul-fuerte)] transition duration-500 mt-4 bg-[var(--azul)] text-white px-4 py-2 text-black rounded-md bg-black transition-colors duration-300">
                         <Link to={`/movies?id=${selectedMovie.id}`}>
                           Agendar boletos
                         </Link>{" "}
                       </button>
 
                       <button
-                        className="hover:bg-[color:var(--azul)] duration-300 ml-2 mt-4 bg-[var(--navy-pink)] text-black px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
+                        className="hover:bg-[var(--azul-claro)] transition duration-500 ml-2 mt-4 bg-[var(--navy-pink)] text-black px-4 py-2 rounded-md hover:bg-[var(--navy-pink)-dark] transition-colors duration-300"
                         onClick={(e) => {
                           e.preventDefault();
                           closeDetailedView();
