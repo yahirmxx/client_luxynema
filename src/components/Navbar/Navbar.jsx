@@ -85,10 +85,10 @@ export const Navbar = () => {
               </li>
               <li className="lg:pl-5 text-xl lg:text-2xl uppercase text-white li-font">
                 <Link
-                  to="/my-movies"
+                  to="/movies"
                   className="cursor-pointer hover:text-[color:var(--azul)] duration-300"
                 >
-                  My Movies
+                  Movies
                 </Link>
               </li>
               <li className="lg:pl-5 text-xl lg:text-2xl uppercase text-white li-font">
